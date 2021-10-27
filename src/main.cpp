@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------------*
 |                                                                     |
-|         (c) Copy05 2016-2021 All rights reserved	                  |
-|	    Creating a Window Using Win32 API (Windows.h)				  |
-|	                                                                  |
+|         (c) Copy05 2016-2021 All rights reserved	              |
+|	    Creating a Window Using Win32 API (Windows.h)	      |
+|	                                                              |
 *--------------------------------------------------------------------*/
 
 #include <iostream>
@@ -19,8 +19,6 @@ namespace as {
 
 int main(int argc, char** argv)
 {
-	// Comment it out if you want to see the Console
-	as::HideConsole();
 
 	std::cout << "Creating Window\n";
 	Window* wind = new Window();
