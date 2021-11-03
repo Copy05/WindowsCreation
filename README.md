@@ -17,21 +17,7 @@ Clone the source code and include it in your Project
 
 // inside main function
 Window* wind = new Window();
-
-	bool running = true;
-	while (running)
-	{
-		if (!wind->processMessages())
-		{
-			std::cout << "Closing Window\n";
-			running = false;
-		}
-
-		// Rendering The Window
-		Sleep(10);
-	}
-
-	delete wind;
+wind->runWindow();
 ```
 
 # Contribution

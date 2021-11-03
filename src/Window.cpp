@@ -9,6 +9,8 @@
 #include <Windows.h>
 #include "Window.h"
 
+#define Render(int) Sleep(int);
+
 const wchar_t* class_name = L"Window Class";
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -60,6 +62,23 @@ Window::Window() : w_hInstance(GetModuleHandle(nullptr))
 Window::~Window()
 {
 	UnregisterClass(class_name, w_hInstance);
+}
+
+void Window::runWindow()
+{
+	bool running = true;
+	while (running)
+	{
+		if (!this->processMessages())
+		{
+			running = false;
+		}
+
+		// Rendering The Window
+		Render(10);
+	}
+
+	delete this;
 }
 
 bool Window::processMessages()

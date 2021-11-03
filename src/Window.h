@@ -16,6 +16,7 @@ class Window
 public:
 	Window();
 	~Window();
+	void runWindow();
 
 	bool processMessages();
 private:

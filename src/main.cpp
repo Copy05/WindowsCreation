@@ -19,25 +19,12 @@ namespace as {
 
 int main(int argc, char** argv)
 {
-	// Comment it out if you want to see the Console
-	as::HideConsole();
-
 	std::cout << "Creating Window\n";
+
+	// Creates a new Window using our Window Class
 	Window* wind = new Window();
+	wind->runWindow();
 
-	bool running = true;
-	while (running)
-	{
-		if (!wind->processMessages())
-		{
-			std::cout << "Closing Window\n";
-			running = false;
-		}
 
-		// Rendering The Window
-		Sleep(10);
-	}
-
-	delete wind;
 	return 0;
 }
