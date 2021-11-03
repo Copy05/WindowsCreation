@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------------*
 |                                                                     |
-|         (c) Copy05 2016-2021 All rights reserved	                  |
-|	    Creating a Window Using Win32 API (Windows.h)				  |
-|	                                                                  |
+|         (c) Copy05 2016-2021 All rights reserved	              |
+|	    Creating a Window Using Win32 API (Windows.h)	      |
+|	                                                              |
 *--------------------------------------------------------------------*/
 
 #include <iostream>
