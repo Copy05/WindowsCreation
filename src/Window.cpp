@@ -10,13 +10,26 @@
 #include "Window.h"
 
 #define Render(int) Sleep(int);
+#define W_STATIC_TXT01 1069
 
 const wchar_t* class_name = L"Window Class";
+
+// Will create a static label with the text "Hello World"
+void helloWorldControl(HWND hWnd)
+{
+	CreateWindowW(L"STATIC", L"Hello World",
+		WS_CHILD | WS_VISIBLE,
+		20, 30, 200, 30,
+		hWnd, (HMENU)W_STATIC_TXT01, (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), NULL);
+}
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
+	case WM_CREATE:
+		helloWorldControl(hWnd);
+		break;
 	case WM_CLOSE:
 		DestroyWindow(hWnd);
 		break;
@@ -37,11 +50,12 @@ Window::Window() : w_hInstance(GetModuleHandle(nullptr))
 	winClass.hInstance = w_hInstance;
 	winClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
 	winClass.hCursor = LoadCursor(NULL, IDC_ARROW);
+	winClass.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);;
 	winClass.lpfnWndProc = WindowProc;
 
 	RegisterClass(&winClass);
 
-	DWORD style = WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU;
+	DWORD style = WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU | WS_VISIBLE | WS_OVERLAPPEDWINDOW;
 
 	int rectwidth = 640;
 	int rectheight = 480;
