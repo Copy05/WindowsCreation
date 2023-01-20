@@ -20,7 +20,7 @@ void helloWorldControl(HWND hWnd)
 	CreateWindowW(L"STATIC", L"Hello World",
 		WS_CHILD | WS_VISIBLE,
 		20, 30, 200, 30,
-		hWnd, (HMENU)W_STATIC_TXT01, (HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE), NULL);
+		hWnd, (HMENU)W_STATIC_TXT01, (HINSTANCE)GetWindowLongPtr(hWnd, GWLP_HINSTANCE)  , NULL);
 }
 
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
